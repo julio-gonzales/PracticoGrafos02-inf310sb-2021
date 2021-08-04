@@ -56,5 +56,4 @@ public class AdyacenteConPeso implements Comparable<AdyacenteConPeso>{
         return this.indiceVertice == other.indiceVertice;
     }
 
-
 }

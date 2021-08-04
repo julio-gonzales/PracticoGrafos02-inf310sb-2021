@@ -97,6 +97,9 @@ public class TestGrafos {
             if (tipoDeGrafo == 4) {
                 System.out.println("7:  COSTO MINIMO ENTRE A Y B (DIJKSTRA)  <<pregunta 14>>");
                 System.out.println("8:  CAMINOS DE COSTOS MINIMOS DESDE VERTICE V (DIJKSTRA)  <<pregunta 15>>");
+                System.out.println("9.  DESDE EL VERTICE A PUEDO LLEGAR A ESTOS OTROS VERTICES: <<PREGUNTA 12>>");
+                System.out.println("10. Arbol de Expancion kruskal ");
+
             }
             //SI ES QUE ES UN GRAFO PESADO SE HABILITA ESTA OPCION
             out.println("15. SALIR");
@@ -302,6 +305,14 @@ public class TestGrafos {
                             System.out.println("DESDE ESTOS VERTICES " + llegar.llegarAUnVerticeSinRecorrido(verticeObjetivo) +
                                     "PUEDO LLEGAR A ESTE VERTICE " + verticeObjetivo);
                             break;
+                        case 4:
+                            int posVertObj;
+                            System.out.println("Digite el vertice desde donde desea partir: ");
+                            posVertObj = teclado.nextInt();
+                            Floyd floyd = new Floyd(diGrafoPesado);
+                            System.out.println("desde el vertice a se puede llegar a los siguiente vertices: ");
+                            System.out.println(floyd.desdeAPuedoLlegar(posVertObj));
+                            break;
                     }
                     break;
                 case 10:
@@ -313,7 +324,13 @@ public class TestGrafos {
                             LlegarAUnVertice llegar = new LlegarAUnVertice(diGrafo);
                             System.out.println("DESDE ESTOS VERTICES " + llegar.llegarAUnVertice(verticeObjetivo) +
                                     "PUEDO LLEGAR A ESTE VERTICE " + verticeObjetivo);
-                        break;
+                            break;
+                        case 4:
+                            System.out.println("Arbol de Expansion: " );
+                            Kruskal kruskal = new Kruskal(grafoPesado);
+                            kruskal.getGrafoKruskal();
+                            System.out.println(kruskal.mostrarArbol());
+                            break;
                     }
                     break;
                 case 11:
@@ -350,6 +367,5 @@ public class TestGrafos {
             }
         }
         while (opcion < 15);
-
     }
 }
